@@ -120,3 +120,25 @@ a %>% arrange(abs(skew)) %>%
 ### variables with adequate skew (skew < 1.9) ----
 a %>% arrange(abs(skew)) %>% 
   filter(abs(skew) <= 1.9) 
+
+# Rstatix ---------
+
+## source: https://github.com/kassambara/rstatix
+
+library(rstatix)
+
+# Compute summary statistics for one or multiple numeric variables. Can handle grouped data.
+get_summary_stats(iris) 
+
+# Compute frequency table of categorical variables.
+iris %>% freq_table(Species)
+
+# Detect univariate outliers using boxplot methods.
+mtcars %>% identify_outliers(hp) 
+mtcars %>% identify_outliers(mpg) 
+?identify_outliers()
+
+mahalanobis_distance()# Compute Mahalanobis Distance and Flag Multivariate Outliers.
+# Univariate Shapiro-Wilk normality test.
+iris %>% shapiro_test(Sepal.Length)
+

@@ -68,9 +68,7 @@ standardize_parameters(fit, method = "basic")
 model_parameters(fit)
 model_parameters(fit, standardize = "basic")
 
-
-
-
+check_model(fit)
 
 
 
@@ -139,8 +137,6 @@ model_performance(fit2)
 
 
 
-
-
 ## Predict ----
 new_obs2 <- data.frame(xtra_hours = c(0, 5),
                        # What are negative compliments??
@@ -153,6 +149,7 @@ predict(fit2, newdata = new_obs2)
 
 
 ## Plot ----
+library(ggeffects)
 ggpredict(fit2, "xtra_hours")               |> plot(add.data = TRUE, jitter = 0)
 ggpredict(fit2, "n_comps")                  |> plot(add.data = TRUE, jitter = 0.1) # jitter?
 ggpredict(fit2, c("xtra_hours", "n_comps")) |> plot(add.data = TRUE, jitter = 0)
