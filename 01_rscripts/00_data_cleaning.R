@@ -8,47 +8,12 @@ library(tidyverse)
 flights
 ?flights
 
-# You might also have noticed the row of three (or four) letter abbreviations 
-# under the column names. These describe the type of each variable:
-#   
-# - int stands for integers.
-# - dbl stands for doubles, or real numbers.
-# - chr stands for character vectors, or strings.
-# - dttm stands for date-times (a date + a time).
-# 
-# There are three other common types of variables that aren’t used in this 
-# dataset but you’ll encounter later in the book:
-#   
-# - lgl stands for logical, vectors that contain only TRUE or FALSE.
-# - fctr stands for factors, which R uses to represent categorical variables with fixed possible values.
-# - date stands for dates.
+
 
 
 
 # Dplyr Basic ----
 
-# In this chapter you are going to learn the five key dplyr functions that allow you to solve the vast majority of your data manipulation challenges:
-#   
-# - Pick observations by their values (filter()).
-# - Reorder the rows (arrange()).
-# - Pick variables by their names (select()).
-# - Create new variables with functions of existing variables (mutate()).
-# - Collapse many values down to a single summary (summarise()).
-
-# These can all be used in conjunction with group_by() which changes the scope of 
-# each function from operating on the entire dataset to operating on it group-by-group. 
-# These six functions provide the verbs for a language of data manipulation.
-
-
-# All verbs work similarly:
-#   
-# - The first argument is a data frame.
-# - The subsequent arguments describe what to do with the data frame, 
-#   using the variable names (without quotes).
-# - The result is a new data frame.
-# 
-# Together these properties make it easy to chain together multiple simple steps 
-# to achieve a complex result. Let’s dive in and see how these verbs work.
 
 filter(flights, month == 1, day == 1)
 
@@ -148,3 +113,5 @@ transmute(flights,
 )
 
 # Next = Group by
+
+# then, talk about pipe!

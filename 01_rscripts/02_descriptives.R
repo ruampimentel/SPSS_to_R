@@ -16,7 +16,7 @@ head(mtcars)
 
 mtcars <- mtcars
 iris <- iris
-
+stats::filter()
 # Descriptive methods
 mtcars %>% summary() # base R
 mtcars %>% skimr::skim() 
@@ -101,6 +101,7 @@ skimr::skim(iris)
 psych::describe(iris ~ Species) # with formula, I don't have to use " " for the variable names
 psych::describeBy(iris, "Species")
 
+
 iris %>% psych::describeBy("Species")
 iris %>% describeBy("Species")
 
@@ -142,3 +143,4 @@ mahalanobis_distance()# Compute Mahalanobis Distance and Flag Multivariate Outli
 # Univariate Shapiro-Wilk normality test.
 iris %>% shapiro_test(Sepal.Length)
 
+cars
