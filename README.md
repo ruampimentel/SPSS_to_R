@@ -1,4 +1,4 @@
-# SPSS_to_R
+# SPSS to R Workshop
 Repository for Workshop SPA 2023
 
 [tidyverse](https://www.tidyverse.org/packages/) </br>
