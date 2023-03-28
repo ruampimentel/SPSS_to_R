@@ -1,5 +1,5 @@
 # SPSS to R Workshop
-Repository for Workshop SPA 2023
+Repository for SPA 2023 Workshop
 
 [tidyverse](https://www.tidyverse.org/packages/) </br>
 [easystats](https://easystats.github.io/easystats/) </br>
@@ -21,7 +21,6 @@ Repository for Workshop SPA 2023
 [Posit / Rstudio cheatsheet](https://posit.co/resources/cheatsheets/?type=posit-cheatsheets&_page=2/) </br>
 
 # Material used in the slides
-[Advanced R e-Book](https://adv-r.hadley.nz/index.html) </br>
 [YaRrr The Pirate's Guide to R](https://bookdown.org/ndphillips/YaRrr/) </br>
 [First steps in R](http://venus.ifca.unican.es/Rintro/dataStruct.html) </br>
 [Data Type in R](https://www.guru99.com/r-data-types-operator.html) </br>
@@ -31,6 +30,7 @@ Repository for Workshop SPA 2023
 [Intro to ggplot2](https://uc-r.github.io/ggplot_intro) </br>
 [Udemy courses](https://www.udemy.com/course/r-programming/learn/lecture/4721396#learning-tools) </br>
 [R graph Gallery](https://r-graph-gallery.com/) </br>
+[Advanced R](https://adv-r.hadley.nz/index.html) </br>
 
 
 
