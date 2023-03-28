@@ -4,7 +4,6 @@ library(dplyr)
 # source: https://towardsdatascience.com/four-r-packages-for-automated-exploratory-data-analysis-you-might-have-missed-c38b03d4ee16
 
 # install.packages("tidyverse")
-library(dplyr)
 library(readr)
 
 
@@ -13,7 +12,7 @@ library(readr)
 df <- read_delim(
     file = "00_data/cardio_train.csv",
     col_types = "iifidiiffffff",
-    delim=";")
+    delim = ";")
 
 
 # pre-processing

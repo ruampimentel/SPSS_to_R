@@ -7,24 +7,9 @@
 # hierarchically).
 #
 # Although R has a built-in function for conducting ANOVAs - `aov()` - you
-# should NOT USE IT as it will not give you the results you want!
-#
-#
-#
-#
-#
-# To be clear:
-#
-#           .-"""-.
-#          / _   _ \
-#          ](_' `_)[
-#          `-. N ,-'
-#         8==|   |==8
-#            `---'
-#
-#  >>>> DO NOT USE `aov()`! <<<<
-#
-#
+# should NOT USE IT as it will not give you the results you want! Mostly because
+# in psychology we are used to get ANOVA type III and this function doesn't provide
+# us this.
 #
 #
 # Instead, we will use the `afex` package, which gives the desired and expected
