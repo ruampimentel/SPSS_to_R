@@ -6,12 +6,39 @@
 # familiar with excel or SPSS, this should feel natural.
 #
 # In data frames, each column is a vector of some type.
-# In the tidyverse way: 
 # each vector represents a "variable", 
 # and each row represents some "observation".
 
 
+
+#################################################################
+##                    Creating a Data Frame                    ##
+#################################################################
+
+
+names <-  c("Dana", "Avi", "Michal", "Asaf", "Jody", "Beth", "Moshe")
+
+id <-  c(305850916, 381345273, 203912400, 229889795, 304786643, 317171280, 326876070)
+
+sex <-  factor(c("F", "M", "F", "M", "F", "F", "M"),
+             labels = c("female", "male"))
+
+math.grades <-  c(93, 30, NA, 88, 100, 67, 79)
+
+english.grades <-  c(100, 45, 90, 77, 88, 90, 66)
+
+
+
 # we can make a data frame with the function `data.frame()`
+
+school_grades <- data.frame(names, id, sex, math.grades, english.grades)
+
+# We can also create them directly in the function. This give the same
+# results as the previous function. This way we don't have to create manny vector 
+# that is just filling our environment
+
+rm(names, id, sex, math.grades, english.grades)
+
 school_grades <- data.frame(
   names = c("Dana", "Avi", "Michal", "Asaf", "Jody", "Beth", "Moshe"),
   
@@ -47,6 +74,12 @@ school_grades[3, 5] # 3rd row, 5th column
 school_grades[c(1, 2, 3, 1, 1, 1), ]
 
 
+# getting a column as printing it as vector
+# the `$` sign
+
+school_grades$english.grades
+
+
 # many ways to do the same thing...
 school_grades[4, 5]
 school_grades[4, "english.grades"]
@@ -60,8 +93,14 @@ school_grades$english.grades[4]
 
 # change and add variables
 school_grades[c(2, 3, 6), 2] <- NA
+school_grades
+
 school_grades$pass.english <- school_grades$english.grades >= 56
+school_grades
+
 school_grades$english.grades_bonus <- school_grades$english.grades + 10
+school_grades
+
 school_grades$math.grades_z <- scale(school_grades$math.grades)
 school_grades
 

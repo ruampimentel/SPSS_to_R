@@ -9,7 +9,7 @@ anxiety_adhd <- read.csv("00_data/anxiety_adhd.csv") |>
          treat_group = factor(treat_group),
          sex = factor(sex))
 
-glimpse(anxiety_adhd)
+anxiety_adhd %>% glimpse()
 
 # see the levels of a factor
 levels(anxiety_adhd$treat_group)

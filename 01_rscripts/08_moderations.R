@@ -7,7 +7,7 @@ library(bayestestR)  # for `bayesfactor_models()`
 library(emmeans)     # for simple slope analysis
 library(ggeffects)   # for model plotting
 
-parental_iris <- read.csv("parental_iris.csv")
+parental_iris <- read.csv("00_data/parental_iris.csv")
 
 glimpse(parental_iris)
 head(parental_iris)
@@ -15,7 +15,6 @@ head(parental_iris)
 # Last time we saw that R doesn't need you to make dummy variables - if can deal
 # with factors just fine. Today we will see that this is also true for
 # moderation and interactions!
-# (I will not be showing how to do these the long way...)
 
 
 
