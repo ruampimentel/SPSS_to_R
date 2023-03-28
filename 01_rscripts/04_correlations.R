@@ -24,10 +24,10 @@ cor
 class(cor)
 str(cor)
 
-#' The output is a list object containing multiple datasets. You can visualize it
-#' just running the object name (in this case, I called it "cor"),
-#' or you can visualize it data frame by itself by calling it from the list.
-#' to access dataframes with a list, you use the "$" sign.
+# The output is a list object containing multiple datasets. You can visualize it
+# just running the object name (in this case, I called it "cor"),
+# or you can visualize it data frame by itself by calling it from the list.
+# to access dataframes with a list, you use the "$" sign.
 
 # See each dataframe separated.
 cor$r
@@ -37,29 +37,6 @@ cor$p
 # round to two decimal places
 round(cor$r, 2)    # same output
 cor$r %>% round(2) # same output
-
-
-# using easystats syntax ----
-library(correlation)
-
-neuroticism %>% correlation()
-neuroticism %>% correlation() %>% summary()
-
-
-df %>% glimpse
-
-# correlation by group using easystats
-df %>% 
-  select(N1:N5, gender) %>% 
-  group_by(gender) %>% 
-  correlation() 
-
-df %>% 
-  select(N1:N5, gender) %>% 
-  group_by(gender) %>% 
-  correlation() %>% 
-  summary()
-
 
 
 
@@ -74,3 +51,45 @@ list_cor <- list(r = cor$r,
 # To put all of them in the same sheet, it requires a bit more work.
 library(openxlsx)
 write.xlsx(list_cor, "cor_test.xlsx")
+
+
+
+
+
+
+#################################################################
+##                      easystats package                      ##
+#################################################################
+
+
+# using easystats syntax ----
+library(correlation)
+
+neuroticism <- df %>% select(N1, N2, N3, N4, N5)
+
+neuroticism %>% correlation() # see obs about adjustment method.
+neuroticism %>% correlation() %>% summary()
+neuroticism %>% correlation() %>% summary(redundant = T)
+
+
+
+
+
+
+
+
+
+
+# correlation by group using easystats -----
+df %>% 
+  select(N1:N5, gender) %>% 
+  group_by(gender) %>% 
+  correlation() 
+
+df %>% 
+  select(N1:N5, gender) %>% 
+  group_by(gender) %>% 
+  correlation() 
+
+
+

@@ -21,7 +21,7 @@ iris <- iris
 mtcars %>% summary() # base R
 mtcars %>% skimr::skim() 
 mtcars %>% Hmisc::describe()
-mtcars %>% psych::describe() # My favorite
+mtcars %>% psych::describe() # My favorite: Great for numeric variables. 
 mtcars %>% pastecs::stat.desc(norm = T) %>% t() %>% round(2) 
 mtcars %>% summarytools::dfSummary() %>% summarytools::view() # very handy for a first view
 mtcars %>% summarytools::descr(transpose = T)
@@ -33,26 +33,22 @@ mtcars %>% summarytools::descr(transpose = T)
 
 
 
+#################################################################
+##         Manipulating the output as any other object         ##
+#################################################################
 
-
-# BONUS -----
 # Psych package ----
 ## run descriptive ----
 
-# just vizualize
+# just visualize
 mtcars %>% psych::describe()
 
-# save the output as a new objects, called `mtcars_desc`, or whatever you want to call
-mtcars_desc <- mtcars %>% 
-  psych::describe() %>%   # this is the main function that I need!
-  as_tibble(rownames = "variables")  # transforming it in tibble as I like.
 
 # Working with iris dataset
-# let's get descriptives. Note that both outcomes below are the same!
+# let's get descriptives. Note that all outcomes below are the same!
 psych::describe(iris)
 describe(iris)
-iris %>% describe()
-# This method is quite nice for numeric variables. 
+iris %>% describe() 
 
 # sort, better, arrange by skew column
 mtcars %>% describe() %>% arrange(skew)
@@ -66,22 +62,25 @@ mtcars %>% describe() %>% arrange(abs(skew))
 mtcars %>% describe() %>% arrange(-abs(skew))
 
 # Check if we have variables with skew >= 1
-mtcars %>% describe() %>% arrange(-abs(skew)) %>% 
+mtcars %>% 
+  describe() %>% 
+  arrange(-abs(skew)) %>% 
   filter(skew >= 1)
 
 # making life easier
-
 mtcars_desc <- mtcars %>% describe() %>% as_tibble(rownames = "variables")
+mtcars_desc
 
 # sort, better, arrange by skew column
 mtcars_desc %>% arrange(skew)
+
 # arrange in the descendent order
 mtcars_desc %>% arrange(-skew)
 
 # arrange by the absolute value of the skew column
 mtcars_desc %>% arrange(abs(skew))
 
-# arrange in the descendent order of the absolute values of the skew column
+# arrange in the descendant order of the absolute values of the skew column
 mtcars_desc %>% arrange(abs(skew))
 mtcars_desc %>% arrange(-abs(skew))
 
@@ -90,26 +89,26 @@ mtcars_desc2 <- mtcars_desc %>% arrange(-abs(skew))
 # Check if we have variables with skew >= 1
 mtcars_desc2
 
-mtcars %>% describe() %>% arrange(-abs(skew)) %>% 
-  filter(skew >= 1)
 
-mtcars %>% 
-  describe() %>% 
-  arrange(-abs(skew)) %>% 
-  filter(skew >= 1)
 
-mtcars_desc2 %>% filter(skew >= 1)
+##################################################################
+##                    Descriptives by Groups                    ##
+##################################################################
 
 
 # IRIS DATASET
+iris
 
 # here another approach that I like, that is also nice for other kind of variables
 iris %>% summarytools::dfSummary() %>% summarytools::view()
 skimr::skim(iris)
 
+# descriptive for the whole variables
+describe(iris)
+
 # Now, let's see the same descriptives, by group
 psych::describe(iris ~ Species) # with formula, I don't have to use " " for the variable names
-psych::describeBy(iris, "Species")
+psych::describeBy(iris, "Species") # but it also works with " "
 
 
 iris %>% psych::describeBy("Species")
@@ -118,18 +117,12 @@ iris %>% describeBy("Species")
 iris %>% psych::describeBy("Species")
 
 
-## check skew - arranging (sorting) by skew ----
 
 
-a %>% arrange(abs(skew))
+#################################################################
+##                           Rstatix                           ##
+#################################################################
 
-### variables with skew > 1.9 ----
-a %>% arrange(abs(skew)) %>% 
-  filter(abs(skew) > 1.9) 
-
-### variables with adequate skew (skew < 1.9) ----
-a %>% arrange(abs(skew)) %>% 
-  filter(abs(skew) <= 1.9) 
 
 # Rstatix ---------
 
@@ -148,8 +141,5 @@ mtcars %>% identify_outliers(hp)
 mtcars %>% identify_outliers(mpg) 
 ?identify_outliers()
 
-mahalanobis_distance()# Compute Mahalanobis Distance and Flag Multivariate Outliers.
 # Univariate Shapiro-Wilk normality test.
 iris %>% shapiro_test(Sepal.Length)
-
-cars

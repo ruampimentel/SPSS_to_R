@@ -1,10 +1,6 @@
 
 # source: https://github.com/mattansb/Practical-Applications-in-R-for-Psychologists/blob/master/10%20ANOVA/01%20ANOVA%20made%20easy.R
-# We've already seen how to deal with categorical predictors, and categorical
-# moderators in a regression model. When all of our predictors are categorical
-# and we model all of the possible interactions, our regression model is
-# equivalent to an ANOVA.
-#
+
 # Although ANOVA is just a type of regression model, researchers working with
 # factorial data often present their models as a single ANOVA with all the
 # interactions (instead of building a series of models and comparing them
@@ -36,7 +32,7 @@
 # (If you wish to learn more - check out:
 # https://shouldbewriting.netlify.app/posts/2021-05-25-everything-about-anova
 
-
+aov()
 
 
 
@@ -51,7 +47,7 @@ library(ggeffects) # for plotting
 # A Between Subjects Design -----------------------------------------------
 
 
-Phobia <- readRDS("Phobia.rds")
+Phobia <- readRDS("00_data/Phobia.rds")
 head(Phobia)
 
 
@@ -76,10 +72,11 @@ eta_squared(m_aov, partial = TRUE)
 
 
 ## 2. Explore the model ----
-ggemmeans(m_aov, c("Condition", "Gender")) |>
+ggemmeans(m_aov, c("Condition", "Gender")) %>% 
   plot(add.data = TRUE, connect.lines = TRUE)
+
 # see also:
-# afex_plot(m_aov, ~ Condition, ~ Gender)
+afex_plot(m_aov, ~ Condition, ~ Gender)
 
 
 
@@ -102,7 +99,7 @@ ggemmeans(m_aov, c("Condition", "Gender")) |>
 # 2. The data must be in the LONG format.
 
 
-mindful_work_stress <- readRDS("mindful_work_stress.rds")
+mindful_work_stress <- readRDS("00_data/mindful_work_stress.rds")
 
 
 
@@ -120,7 +117,7 @@ head(mindful_work_stress)
 # 1. One row per each OBSERVATION,
 # 2. A column for each variable (including the subject ID!)
 # 3. Repeated measures are stored across rows.
-mindful_work_stress_long <- mindful_work_stress |>
+mindful_work_stress_long <- mindful_work_stress %>% 
   tidyr::pivot_longer(cols = c(T1,T2),
                       names_to = "Time",
                       values_to = "work_stress")
@@ -135,31 +132,16 @@ fit_mfs <- aov_ez("id", "work_stress",
                   between = "Family_status",
                   within = "Time",
                   data = mindful_work_stress_long,
-                  anova_table = list(es = "pes"))
+                  anova_table = list(es = "pes")) # pes = partial eta squared
 fit_mfs
 
 eta_squared(fit_mfs, partial = TRUE)
 
-# Repeated measures are really just one way of saying that there are multiple
-# levels in our data. Although rm-ANOVA can deal with simple cases like the ones
-# presented here, for more complex data structures (more nesting, more than one
-# random effects factor, modeling of a continuous predictor, etc.) HLM/LMM are
-# required (which you can learn next semester).
-# see `vignette("afex_mixed_example", package = "afex")` for an example of how
-# to run HLM/LMM ANOVAs.
-
-
-
 
 
 ## 2. Explore the model ----
-ggemmeans(fit_mfs, c("Time", "Family_status")) |>
+ggemmeans(fit_mfs, c("Time", "Family_status")) %>% 
   plot(add.data = TRUE, connect.lines = TRUE)
-
-
-
-# Contrast analysis...
-
 
 
 
@@ -167,17 +149,8 @@ ggemmeans(fit_mfs, c("Time", "Family_status")) |>
 
 # More --------------------------------------------------------------------
 
-# This lesson is a shortened version of a full ANOVA course (RIP), which you can
+# This syntax is a shortened version of a full ANOVA course (RIP), which you can
 # find here:
 # https://github.com/mattansb/Analysis-of-Factorial-Designs-foR-Psychologists
-#
-# This course covered:
-# - ANCOVA
-# - Simple effect / contrast effect sizes
-# - HLM for factorial designs
-#
-# If any of these topics is useful to you, feel free to use these materials and
-# schedule a meeting during my office hours to discuss how you might learn more
-# about these methods.
 
 

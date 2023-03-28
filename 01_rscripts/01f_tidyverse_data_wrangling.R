@@ -12,8 +12,6 @@ flights
 flights %>% as.data.frame()
 cars %>% as_tibble()
 
-# particularly, I prefer tibbles!
-
 
 # Dplyr Basic ----
 flights <- flights
@@ -23,7 +21,6 @@ flights %>% filter(month == 1, day == 1)
 
 
 jan1 <- flights %>% filter(month == 1, day == 1)
-
 jan1
 
 (dec25 <- flights %>% filter(month == 12, day == 25))
@@ -57,7 +54,7 @@ x == y
 
 is.na(x)
 
-df <- tibble(x = c(1, NA, 3))
+df <- tibble(x = c(1, NA, 3)) # create tibble just like dataframes
 df
 
 df %>% filter( x > 1)

@@ -5,3 +5,15 @@ install.packages("dplyr") # need quotation marks
 library("dplyr")    # works with and 
 library(dplyr)      # without quotation marks
 
+
+
+
+
+
+
+# Install all packages for this workshop
+
+install.packages(c("tidyverse",
+                   "psych",
+                   "easystats",
+                   "rstatix"))

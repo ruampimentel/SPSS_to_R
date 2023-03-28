@@ -133,7 +133,3 @@ log(y_vec) # if base is not specified, returns the natural logarithm
 exp(y_vec)	# Returns the exponential of x
 sqrt(y_vec)	# Returns the square root of x
 factorial(y_vec) #	Returns the factorial of x (x!)
-
-
-
-
