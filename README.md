@@ -10,9 +10,9 @@ Repository for Workshop SPA 2023
 
 # e-books
 [R for Data Science](https://r4ds.had.co.nz/index.html) </br>
-[Text Mining](https://www.tidytextmining.com/) </br>
 [Big Book of R](https://www.bigbookofr.com/) </br>
 [YaRrr The Pirate's Guide to R](https://bookdown.org/ndphillips/YaRrr/) </br>
+[Text Mining](https://www.tidytextmining.com/) </br>
 
 
 # Cheatsheet
