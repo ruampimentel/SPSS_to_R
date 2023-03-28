@@ -1,9 +1,9 @@
 # SPSS_to_R
 Repository for Workshop SPA 2023
 
-[tidyverse](https://www.tidyverse.org/packages/)
-[easystats](https://easystats.github.io/easystats/)
-[rstatix](https://github.com/kassambara/rstatix)
+[tidyverse](https://www.tidyverse.org/packages/) </br>
+[easystats](https://easystats.github.io/easystats/) </br>
+[rstatix](https://github.com/kassambara/rstatix) </br>
 
 [Introduction to Psych Package](https://cran.r-project.org/web/packages/psych/vignettes/intro.pdf)
 
