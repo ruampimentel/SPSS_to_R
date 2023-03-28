@@ -6,21 +6,20 @@
 
 
 
-# Basics types
-# 4.5 is a decimal value called numerics.
-# 4 is a natural value called integers. Integers are also numerics.
-# TRUE or FALSE is a Boolean value called logical binary operators in R.
-# The value inside ” ” or ‘ ‘ are text (string). They are called characters.
 
 # Declare variables of different types
 # Numeric
 x <- 28
 class(x)
 typeof(x)
+# remove the object x from the envrionment
+rm(x)
 
+x # doesn't exist more.
 
 # String
-y <- "R is Fantastic"
+y <- "Hello world!"
+
 class(y)
 
 # Boolean
@@ -122,86 +121,6 @@ sqrt(y_vec)	# Returns the square root of x
 factorial(y_vec) #	Returns the factorial of x (x!)
 
 
-
-## Basic statistics functions ----
-cars # example dataset. This dataset is loaded from base R.
-cars <- cars # just so we can see in our environment.
-
-head(cars) # take a look at the data
-glimpse(cars) # take another look at the data
-?cars # read about the dataset
-
-# Operator	Description
-
-cars$speed # look only to the speed column. In this way we are getting a vector as output
-
-mean(cars$speed)	
-median(cars$speed)
-var(cars$speed)	# Variance of x
-sd(cars$speed)	# Standard deviation of x
-scale(cars$speed)	# Standard scores (z-scores) of x
-
-cars$speed_z <- scale(cars$speed) # adding a column with z scores
-                                  # this is the base R way to add column.
-head(cars) # take a look at the new data with the column
-
-quantile(cars$speed)	# The quartiles of x
-summary(cars$speed)	# Summary of x: mean, min, max etc..
-summary(cars) # we can also check the summary for the entire dataset. Flexible function!
-
-
-## Writing functions
-
-square_function <- function(n) {
-  n^2
-}  
-
-# calling the function and passing value 4
-square_function(4)
-
-rm(square_function)
-
-# using other fucntions inside your functions.
-# function.name <- function(arguments) 
-# {
-#   computations on the arguments	
-#   some other code
-# }
-
-z_scores <- function(n) {
-  m <- mean(v) # store mean in an object
-  s <- sd(v)   # store sd in object
-  (n - m)/s   # get n, subtracts the mean (m), and divide by sd(s)
-}
-
-
-a <- 1:5
-z_scores(a) # my function - returns an object the same class of the input.
-            # in this case we input vector. returns a vector
-
-scale(a)    # base R function - returns
-
-## multi argument
-
-times <- function(x,y) {
-  x * y
-}
-times(2,4)
-
-# importing data
-
-
-# basic descriptives
-
-# basic plotting
-
-# package
-
-# getting help
-help.start()   # general help
-help(dplyr)      # help about function foo
-?dplyr           # same thing
-# select dplyr and use the F1 key
 
 
 #https://www.guru99.com/r-factor-categorical-continuous.html

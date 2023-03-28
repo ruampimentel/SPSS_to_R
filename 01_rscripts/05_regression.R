@@ -1,15 +1,14 @@
 
 # Source: https://github.com/mattansb/Practical-Applications-in-R-for-Psychologists/blob/master/05%20regression%20101/regression%20basics.R
 
-# Although this course is focused for the most part on linear regression models,
-# the principles of modeling are quite consistent across all types of models
+# The principles of modeling are quite consistent across all types of models (liner and non linear)
 # that you can build in R:
 # - *Build* a model:
 #   - Specify a model
 #   - Estimate its parameters
 # - *Evaluate* the model's fit
 # - *Explore* the model (predict, plot, estimate...)
-# And so everything taught here and in the next few of lessons is also relevant
+# Everything in this syntax is also relevant
 # to those interested in machine learning, mixed models, structural equation
 # modeling, ANOVAs, and more and more...
 
@@ -18,9 +17,8 @@ library(parameters)   # for model_parameters
 library(performance)  # for model_performance etc..
 install(ggeffects)    # for plotting models
 
-
 # load a data set
-data(hardlyworking, package = "effectsize")
+data(hardlyworking)
 head(hardlyworking)
 # - salary      : Shekels per month
 # - xtra_hours  : Hours over (weekly) over time worked
@@ -72,11 +70,8 @@ check_model(fit)
 
 
 
-
 ## Evaluate the model ----
 # Look at some model indices
-rmse(fit) # or mae(fit)
-r2(fit) # and more...
 model_performance(fit)
 
 

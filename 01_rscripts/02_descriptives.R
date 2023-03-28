@@ -16,7 +16,7 @@ head(mtcars)
 
 mtcars <- mtcars
 iris <- iris
-stats::filter()
+
 # Descriptive methods
 mtcars %>% summary() # base R
 mtcars %>% skimr::skim() 
@@ -26,6 +26,16 @@ mtcars %>% pastecs::stat.desc(norm = T) %>% t() %>% round(2)
 mtcars %>% summarytools::dfSummary() %>% summarytools::view() # very handy for a first view
 mtcars %>% summarytools::descr(transpose = T)
 
+
+
+
+
+
+
+
+
+
+# BONUS -----
 # Psych package ----
 ## run descriptive ----
 
@@ -112,7 +122,6 @@ iris %>% psych::describeBy("Species")
 
 
 a %>% arrange(abs(skew))
-
 
 ### variables with skew > 1.9 ----
 a %>% arrange(abs(skew)) %>% 

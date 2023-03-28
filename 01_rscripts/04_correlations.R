@@ -10,6 +10,7 @@ head(bfi)
 df <- bfi %>% as_tibble()
 df %>% glimpse()
 
+# Let's check the correlation between all items of neuroticism
 # same result
 df %>% select(N1, N2, N3, N4, N5)
 df %>% select(N1:N5)
@@ -36,15 +37,13 @@ cor$p
 # round to two decimal places
 round(cor$r, 2)    # same output
 cor$r %>% round(2) # same output
-cor$n %>% round(2)
 
 
-# using easystats syntax:
+# using easystats syntax ----
 library(correlation)
 
 neuroticism %>% correlation()
 neuroticism %>% correlation() %>% summary()
-
 
 
 df %>% glimpse
@@ -64,14 +63,14 @@ df %>%
 
 
 
-#' To export to excel, one of the easiest ways, is creating another list 
-#' only with the objects you want. 
+# To export to excel, one of the easiest ways, is creating another list 
+# only with the objects you want. 
 list_cor <- list(r = cor$r,
                  n = cor$n,
                  p = cor$p)
 
-#' then, use openxlsx::write.xlsx to export all dataframes at one for a single 
-#' Excel file. Each object of the list will be a different sheet in the excel file. 
-#' To put all of them in the same sheet, it requires a bit more work.
+# then, use openxlsx::write.xlsx to export all dataframes at one for a single 
+# Excel file. Each object of the list will be a different sheet in the excel file. 
+# To put all of them in the same sheet, it requires a bit more work.
 library(openxlsx)
 write.xlsx(list_cor, "cor_test.xlsx")

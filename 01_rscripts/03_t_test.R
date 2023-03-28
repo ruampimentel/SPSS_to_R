@@ -17,24 +17,27 @@ t.test(mpg ~ am, mtcars)
 t.test(mpg ~ am, data = mtcars, var.equal = TRUE)
 
 
-# Rstatix
+# Rstatix ----
 library(rstatix)
 
 mtcars %>% t_test(mpg ~ am)
 mtcars %>% t_test(mpg ~ am, var.equal = T)
-mtcars %>% t_test(mpg ~ am, var.equal = T)
+mtcars %>% t_test(mpg ~ am, var.equal = F)
 
 # calculating effect size
 mtcars %>% rstatix::cohens_d(mpg ~ am)
 
 effectsize::cohens_d(mpg ~ am, data = mtcars, pooled_sd = F)
 
+# what is the problem?
 cohens_d(mpg ~ am, data = mtcars, pooled_sd = FALSE)
 
+
+
+
+# BONUS 2 ----
 bfi %>% summarytools::dfSummary()
-
-
-# BONUS ----
+?bfi
 
 # running multiple t-tests
 bfi %>% 
