@@ -32,8 +32,6 @@
 # (If you wish to learn more - check out:
 # https://shouldbewriting.netlify.app/posts/2021-05-25-everything-about-anova
 
-aov()
-
 
 
 library(afex) # for ANOVA

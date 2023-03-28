@@ -4,7 +4,7 @@ library(dplyr)
 library(parameters)
 
 
-anxiety_adhd <- read.csv("00_data/anxiety_adhd.csv") |>
+anxiety_adhd <- read.csv("00_data/anxiety_adhd.csv") %>% 
   mutate(ID = factor(ID),
          treat_group = factor(treat_group),
          sex = factor(sex))
@@ -57,7 +57,7 @@ levels(anxiety_adhd$treat_group)
 ##<<<<<<<<<<<<<<<<<<<<<<<<<<##
 
 
-anxiety_adhd <- anxiety_adhd |>
+anxiety_adhd <- anxiety_adhd  %>% 
   mutate(d_placebo = ifelse(treat_group == "placebo", 1, 0),
          d_treat   = ifelse(treat_group == "treat",   1, 0))
 
@@ -65,8 +65,13 @@ anxiety_adhd <- anxiety_adhd |>
 fit_dummy <- lm(anxiety ~ d_placebo + d_treat,
                 data = anxiety_adhd)
 
+summary(fit_dummy)
 model_parameters(fit_dummy)
-# what do these parameters mean?
+model_performance(fit_dummy)
+
+
+
+
 
 
 
@@ -75,6 +80,7 @@ model_parameters(fit_dummy)
 # Option 2: let R do all the hard work... Just put the factor in the formula!
 
 fit_factor <- lm(anxiety ~ treat_group, data = anxiety_adhd)
+summary(fit_factor)
 model_parameters(fit_factor)
 model_parameters(fit_dummy)
 
@@ -96,7 +102,13 @@ contrasts(anxiety_adhd$treat_group)
 ## Change contrast scheme --------------------------------------------------
 
 ## 1. change base group in dummy coding
-anxiety_adhd$treat_group <- relevel(anxiety_adhd$treat_group, ref = "placebo")
+anxiety_adhd %>% 
+  mutate(treat_group = relevel(treat_group, ref = "placebo")) # only print
+
+anxiety_adhd <- anxiety_adhd %>% 
+  mutate(treat_group = relevel(treat_group, ref = "placebo")) # create an updated object
+
+
 contrasts(anxiety_adhd$treat_group)
 
 fit_factor2 <- lm(anxiety ~ treat_group, data = anxiety_adhd)
@@ -127,32 +139,8 @@ model_parameters(fit_factor3) # what do there mean???
 
 
 
-
-# (2) Model exploration (inference) ---------------------------------------
-
-# Looking at the parameters from the last two models, it is hard to see what the
-# difference between "no treat" and "treat" groups is... And even if we could
-# fish it out, is it significant?
-model_parameters(fit_factor2)
-model_parameters(fit_factor3)
-
-# If we were working in SPSS, we would re-fit the model with different dummy
-# coding to get all the pair-wise differences.
-#
-# But we are in R! And we have smart packages that can do wonders!
-
-
-library(emmeans)
-# `emmeans` is one of the best packages in R - for ANY follow-up analysis!!
-emmeans(fit_factor2, ~ treat_group)
-emmeans(fit_factor3, ~ treat_group)
-# Note that both returned the exact same results - the coding scheme has no
-# influence here!
-
-
-
 # All pair-wise comparisons.
-emmeans(fit_factor2, ~ treat_group) |>
+emmeans(fit_factor2, ~ treat_group) %>% 
   contrast(method = "pairwise",
            infer = TRUE)
 # Note the automatic p-value adjustment

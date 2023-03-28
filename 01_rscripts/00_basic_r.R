@@ -3,8 +3,6 @@
 # https://www.guru99.com/r-data-types-operator.html
 
 
-
-
 #################################################################
 ##                            Basic                            ##
 #################################################################
@@ -14,15 +12,18 @@
 # Declare variables of different types
 # Numeric
 x <- 28
+
 class(x)
 typeof(x)
-# remove the object x from the envrionment
+
+# remove the object x from the environment
 rm(x)
 
 x # doesn't exist more.
 
 # String
-y <- "Hello world!"
+y <- "These are words... words are chracters..."
+y
 
 class(y)
 
@@ -45,6 +46,7 @@ x - y
 # remove variables
 rm(x)
 rm(y)
+rm(z)
 
 # what is the problem?
 rm(x)
@@ -133,3 +135,5 @@ log(y_vec) # if base is not specified, returns the natural logarithm
 exp(y_vec)	# Returns the exponential of x
 sqrt(y_vec)	# Returns the square root of x
 factorial(y_vec) #	Returns the factorial of x (x!)
+
+# go to `00a_factors.R`
