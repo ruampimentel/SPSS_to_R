@@ -43,7 +43,8 @@ xlsx_tb # tibble
 
 # Show click and point option
 
-# emotional_1back:
+
+# deaf_numer:
 # sID      - subject number
 # nFingers - Number of stimulated fingers
 # trial    - experimental trial
