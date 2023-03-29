@@ -4,7 +4,7 @@ Repository for SPA 2023 Workshop
 
 # Download R and Rstudio
 
-R - [https://www.r-project.org/](https://www.r-project.org/)
+R - [https://www.r-project.org/](https://www.r-project.org/) </br>
 Rstudio - [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/)
 
 
