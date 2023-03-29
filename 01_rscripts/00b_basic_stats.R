@@ -15,7 +15,7 @@ cars$speed # look only to the speed column.
 class(cars)
 
 mean(cars$speed)	
-mean(cars) # problem - mean() only accept Vectors (and date)! 	
+mean(cars) # problem - mean() only accept Vectors! 	
 ?mean()    # it does not accept a data frame
 mean(cars$dist)	# works again 
 
@@ -74,4 +74,4 @@ times <- function(x,y) {
 }
 times(2,4)
 
-
+# go to 01_data_frames.R

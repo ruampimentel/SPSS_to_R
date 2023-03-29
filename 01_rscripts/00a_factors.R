@@ -62,3 +62,5 @@ factor_day <- factor(day_vector,
 
 # Print the new variable
 factor_day
+
+# back to slides

@@ -13,7 +13,7 @@ Repository for SPA 2023 Workshop
 [Big Book of R](https://www.bigbookofr.com/) </br>
 [YaRrr The Pirate's Guide to R](https://bookdown.org/ndphillips/YaRrr/) </br>
 [Text Mining](https://www.tidytextmining.com/) </br>
-
+[R for psychological Assessment](https://psyr.djnavarro.net/index.html) </br>
 
 # Cheatsheet
 
