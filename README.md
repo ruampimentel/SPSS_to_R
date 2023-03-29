@@ -1,11 +1,11 @@
 # SPSS to R Workshop
 Repository for SPA 2023 Workshop
 
+# Packages I recommend to start
 [tidyverse](https://www.tidyverse.org/packages/) </br>
 [easystats](https://easystats.github.io/easystats/) </br>
 [rstatix](https://github.com/kassambara/rstatix) </br>
-
-[Introduction to Psych Package](https://cran.r-project.org/web/packages/psych/vignettes/intro.pdf)
+[Introduction to Psych Package](https://cran.r-project.org/web/packages/psych/vignettes/intro.pdf) </br>
 
 
 # e-books
@@ -16,7 +16,6 @@ Repository for SPA 2023 Workshop
 [R for psychological Assessment](https://psyr.djnavarro.net/index.html) </br>
 
 # Cheatsheet
-
 [Base R](https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf) </br>
 [Posit / Rstudio cheatsheet](https://posit.co/resources/cheatsheets/?type=posit-cheatsheets&_page=2/) </br>
 
