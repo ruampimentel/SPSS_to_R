@@ -43,10 +43,12 @@ data_raw <- read_csv("00_data/deaf_numer.csv")
 
 str(data_raw)
 glimpse(data_raw) # better!
+data_raw # no need to use `head()`
+
 
 # quick exploration plot
 # pairs(data_raw)
-pairs(data_raw[1:100, ]) # show stop sign running info, 
+pairs(data_raw[1:10000, ]) # show stop sign running info, 
                          # selecting only first 100 rows, to be faster. 
 
 

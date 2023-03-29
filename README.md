@@ -1,6 +1,13 @@
 # SPSS to R Workshop
 Repository for SPA 2023 Workshop
 
+
+# Download R and Rstudio
+
+R - [https://www.r-project.org/](https://www.r-project.org/)
+Rstudio - [https://posit.co/download/rstudio-desktop/](https://posit.co/download/rstudio-desktop/)
+
+
 # Packages I recommend to start
 [tidyverse](https://www.tidyverse.org/packages/) </br>
 [easystats](https://easystats.github.io/easystats/) </br>
