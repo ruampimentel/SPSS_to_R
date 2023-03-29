@@ -38,8 +38,8 @@ data_clean_joined
 
 
 
-
-
+# remove what we don't need
+rm(data_clean, data_clean_joined, data_raw, subject_info)
 
 
 # Reshaping data ----------------------------------------------------------
@@ -69,7 +69,7 @@ emotionalWM_long <- emotionalWM %>%
   pivot_longer(
     cols = positive_average:negative_O2,
     names_to = "condition",
-    values_to = "ERP" # Amplitudes of ERP components at electrodes of interes 
+    values_to = "ERP" # Amplitudes of ERP components at electrodes of interest 
   )
 
 emotionalWM_long
