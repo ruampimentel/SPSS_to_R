@@ -73,7 +73,9 @@ neuroticism %>% correlation() %>% summary(redundant = T)
 
 
 
-
+## treat as a dataframe.
+neuroticism %>% correlation() %>% arrange(r)
+neuroticism %>% correlation() %>% arrange(-r)
 
 
 
