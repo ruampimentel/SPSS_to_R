@@ -43,7 +43,7 @@ square_function <- function(n) {
 }  
 
 # calling the function and passing value 4
-square_function(4)
+square_function(5)
 
 rm(square_function)
 
@@ -59,7 +59,6 @@ z_scores <- function(n) {
   s <- sd(n)   # store sd in object
   (n - m)/s   # get n, subtracts the mean (m), and divide by sd(s)
 }
-
 
 a <- 1:5
 z_scores(a) # my function - returns an object the same class of the input.
