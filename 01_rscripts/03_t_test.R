@@ -11,7 +11,8 @@ t.test(mpg ~ am, data = mtcars, var.equal = TRUE)    # t-test
 t.test(extra ~ 1, data = sleep)
 t.test(extra ~ 1, data = sleep)
 
-mtcars %>% head
+head(mtcars)
+
 
 t.test(mpg ~ am, mtcars)
 t.test(mpg ~ am, data = mtcars, var.equal = TRUE)

@@ -16,13 +16,15 @@ x <- 28
 class(x)
 typeof(x)
 
+x
+
 # remove the object x from the environment
 rm(x)
 
 x # doesn't exist more.
 
 # String
-y <- "These are words... words are chracters..."
+y <- "These are words... words are characters..."
 y
 
 class(y)
@@ -81,7 +83,8 @@ sum_vect
 # Slice the first five rows of the vector
 my_vector <- c(1,1,1,1,1,2,2,2,2,2)
 my_vector      # print
-my_vector[1:5] # slice
+sliced_vec <- my_vector[1:5] # slice
+
 
 # Faster way to create adjacent values
 c(1:10)
@@ -100,7 +103,7 @@ c(1:10)
 # Logical Operators ----
 
 # > greater than
-# >= greather than or equal to
+# >= greater than or equal to
 # == exactly equal to
 # != not equal to
 
