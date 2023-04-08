@@ -40,6 +40,7 @@ Rstudio - [https://posit.co/download/rstudio-desktop/](https://posit.co/download
 
 
 
-
+# Chat GPT
 [ChatGPT](https://chat.openai.com/chat) </br>
 
+[Tips for using chatGPT to learn R](https://www.seascapemodels.org/rstats/2023/04/07/using-chatgpt-to-learn-R.html) - by Chris Brown
